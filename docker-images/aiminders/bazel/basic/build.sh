@@ -1,4 +1,4 @@
 echo "Building"
-docker build -f Dockerfile -t aiminders/library:python.latest .
+docker build -f Dockerfile -t aiminders/library:bazel.latest .
 echo "Pushing"
-docker push aiminders/library:python.latest
+docker push aiminders/library:bazel.latest

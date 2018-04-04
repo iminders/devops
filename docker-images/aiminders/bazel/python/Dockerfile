@@ -2,7 +2,7 @@
 #  upgrade to bazel 0.11.0
 #  upgrade to latest tensorflow version (1.6)
 
-FROM aiminders/libary:bazel.0.10.0
+FROM aiminders/library:bazel.latest
 
 RUN (export HTTP_PROXY=$HTTP_PROXY; export HTTPS_PROXY=$HTTP_PROXY; \
     apt-get update && apt-get install -y --no-install-recommends \
