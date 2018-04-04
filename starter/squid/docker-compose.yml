@@ -6,6 +6,6 @@ services:
     ports:
       - "3128:3128"
     volumes:
-      - /home/ubuntu/software/squid/data:/var/spool/squid3
-      - /home/ubuntu/software/squid/squid.conf:/etc/squid/squid.conf
+      - /home/ubuntu/software/services/starter/squid/data:/var/spool/squid3
+      - /home/ubuntu/software/services/starter/squid/squid.conf:/etc/squid/squid.conf
     restart: always
