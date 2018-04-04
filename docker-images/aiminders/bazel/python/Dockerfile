@@ -1,6 +1,6 @@
 # 2018/04/06:
 #  upgrade to bazel 0.11.0
-#  upgrade to latest tensorflow version (1.6)
+#  upgrade to latest tensorflow version (1.7)
 
 FROM aiminders/library:bazel.latest
 
