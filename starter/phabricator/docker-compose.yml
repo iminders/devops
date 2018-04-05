@@ -5,14 +5,14 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - './mariadb_data:/bitnami'
+      - 'mariadb_data:/bitnami'
   phabricator:
     image: 'bitnami/phabricator:latest'
     labels:
       kompose.service.type: nodeport
     ports:
-      - '8080:80'
-      - '8443:443'
+      - '80:80'
+      - '443:443'
     environment:
       - PHABRICATOR_HOST=${PHABRICATOR_HOST}
       - PHABRICATOR_USERNAME=${USER_NAME}
