@@ -36,7 +36,8 @@ RUN (export HTTP_PROXY=$HTTP_PROXY; export HTTPS_PROXY=$HTTP_PROXY; \
         jieba \
         PyYAML \
         tushare \
-        prometheus_client)
+        prometheus_client\
+        Flask)
 
 WORKDIR /root
 
