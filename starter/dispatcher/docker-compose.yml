@@ -3,6 +3,9 @@ version: '2.0'
 services:
   dispatcher:
     image: aiminders/libary:dispatcher.latest
+    environment:
+      HTTS_PROXY: http://192.241.166.56:8080
+      HTTP_PROXY: http://192.241.166.56:8080
     ports:
       - '9334:9334'
     volumes:

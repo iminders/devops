@@ -1,0 +1,12 @@
+version: '2'
+services:
+  marketsrv:
+    image: 'aiminders/library:marketsrv.latest'
+    environment:
+      PORT: 8080
+    ports:
+      - '8080:8080'
+    command:
+      sh /root/market/run-marketsrv.sh
+    volumes:
+      - .:/root/market
