@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mariadb:
+    image: mysql
+    container_name: mysql-db # 容器名
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} #root管理员用户密码
+      MYSQL_USER=${MYSQL_USER}   #创建test用户
+      MYSQL_PASSWORD=${MYSQL_PASSWORD} #设置test用户的密码
+    ports:
+      - '3306:3306'  #host物理直接映射端口为6606
+    volumes:
+        #mysql数据库挂载到host物理机目录/e/docker/mysql/data/db
+      - "./data:/var/lib/mysql"
+        #容器的配置目录挂载到host物理机目录./conf
+      - "./conf:/etc/mysql/conf.d"
