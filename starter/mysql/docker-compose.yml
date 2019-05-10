@@ -1,8 +1,8 @@
 version: '2'
 services:
-  mariadb:
-    image: mysql
-    container_name: mysql-db # 容器名
+  mysqldb:
+    image: mysql:5.7
+    container_name: mysqldb # 容器名
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
     restart: always
     environment:
