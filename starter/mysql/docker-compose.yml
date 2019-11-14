@@ -1,0 +1,16 @@
+version: '2'
+services:
+  db:
+    image: 'mysql:5.7'
+    container_name: mysqldb
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - '3309:3306'  #host物理直接映射端口为3309
+    volumes:
+      - "/home/ubuntu/data/mysql:/var/lib/mysql" #mysql数据库挂载到host物理机目录/e/docker/mysql/data/db
+      - "./conf:/etc/mysql/conf.d" #容器的配置目录挂载到host物理机目录./conf

@@ -1,0 +1,9 @@
+version: '2.0'
+
+services:
+  redis:
+    image: redis:4.0-alpine
+    expose:
+      - '6379'
+    ports:
+      - '6379:6379'
