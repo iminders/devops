@@ -11,7 +11,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: "godel:2181"
       KAFKA_BROKER_ID: 2
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_CREATE_TOPICS: "production:5:1,develop:5:1"
+      KAFKA_CREATE_TOPICS: "prod_realtime:5:1,prod_mood:5:1"
     volumes:
       - /etc/hosts:/etc/hosts
     container_name: kafka
