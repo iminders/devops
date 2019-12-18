@@ -1,7 +1,6 @@
-# https://github.com/mindprince/nvidia_gpu_prometheus_exporter
+# https://github.com/NVIDIA/gpu-monitoring-tools/blob/master/exporters/prometheus-dcgm/README.md
+# 安装container runtime: https://www.linuxidc.com/Linux/2019-07/159613.htm
 docker run -d \
   --restart always \
-  -e LD_LIBRARY_PATH=$LD_LIBRARY_PATH \
-  --device-cgroup-rule 'c 195:* mrw' \
-  -p 9445:9445 \
-  mindprince/nvidia_gpu_prometheus_exporter:0.1
+  -p 9445:9100 \
+  --runtime=nvidia --rm --name=nvidia-dcgm-exporter nvidia/dcgm-exporter
