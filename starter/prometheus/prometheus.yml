@@ -47,3 +47,7 @@ scrape_configs:
       - targets: ['iminders.com:9100']
         labels:
           group: 'develop-node'
+
+      - targets: ['iminders.com:9445']
+        labels:
+          group: 'gpu-node'
