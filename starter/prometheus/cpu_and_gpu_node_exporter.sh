@@ -1,7 +1,8 @@
 # https://github.com/NVIDIA/gpu-monitoring-tools/blob/master/exporters/prometheus-dcgm/README.md
 docker run -d \
 --restart always \
---runtime=nvidia --name=nvidia-dcgm-exporter -v /run/prometheus:/run/prometheus nvidia/dcgm-exporter
+--cap-add=sys_admin \
+--runtime=nvidia --name=nvidia-dcgm-exporter -v /run/prometheus:/run/prometheus nvidia/dcgm-exporter -p
 
 docker run -d \
 --restart always \
