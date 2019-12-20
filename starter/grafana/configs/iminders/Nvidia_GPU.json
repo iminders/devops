@@ -249,7 +249,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_node_name}} - gpu{{minor}}",
+          "legendFormat": "gpu {{ gpu }}",
           "refId": "A"
         }
       ],
@@ -339,7 +339,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_node_name}} - gpu{{minor}}",
+          "legendFormat": "gpu {{ gpu }}",
           "refId": "A"
         }
       ],
@@ -480,8 +480,7 @@
           "fill": true,
           "line": true,
           "op": "gt",
-          "value": 80,
-          "yaxis": "left"
+          "value": 80
         }
       ],
       "timeFrom": null,
@@ -622,12 +621,13 @@
       "datasource": "Prometheus",
       "fill": 0,
       "gridPos": {
-        "h": 3,
-        "w": 6,
+        "h": 6,
+        "w": 8,
         "x": 15,
         "y": 6
       },
       "id": 29,
+      "interval": "",
       "legend": {
         "alignAsTable": false,
         "avg": false,
@@ -658,7 +658,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_node_name}} - gpu{{minor}}",
+          "legendFormat": "gpu {{ gpu }}",
           "refId": "A"
         }
       ],
@@ -712,10 +712,10 @@
       "datasource": "Prometheus",
       "fill": 0,
       "gridPos": {
-        "h": 3,
-        "w": 6,
+        "h": 8,
+        "w": 8,
         "x": 15,
-        "y": 9
+        "y": 12
       },
       "id": 28,
       "legend": {
@@ -748,7 +748,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_node_name}} - gpu{{minor}}",
+          "legendFormat": "gpu {{ gpu }}",
           "refId": "A"
         }
       ],
@@ -802,8 +802,8 @@
       "datasource": "Prometheus",
       "fill": 0,
       "gridPos": {
-        "h": 5,
-        "w": 10,
+        "h": 6,
+        "w": 15,
         "x": 0,
         "y": 13
       },
@@ -931,5 +931,5 @@
   "timezone": "",
   "title": "Nvidia GPU",
   "uid": "fnvhnzGmk",
-  "version": 20
+  "version": 27
 }
