@@ -183,7 +183,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "dcgm_mem_copy_utilization",
+          "expr": "dcgm_fb_used / (81.92)",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -931,5 +931,5 @@
   "timezone": "",
   "title": "Nvidia GPU",
   "uid": "fnvhnzGmk",
-  "version": 27
+  "version": 29
 }
