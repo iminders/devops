@@ -1,0 +1,31 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+*.pyc
+*.pkl
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+/bazel-*
+
+.DS_Store
+
+# IDEA Editor
+.idea/
+
+# SSL certificate files
+*.pem
+*.pyc
+*ipynb_checkpoints
+*__pycache__/
+*.pth
+*train_plots/
+*.egg-info/
+data/
+*_data/

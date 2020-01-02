@@ -1,0 +1,14 @@
+version: '2'
+services:
+  nginx:
+    image: 'nginx:latest'
+    restart: always
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx_data/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./vhost:/etc/nginx/conf/vhost
+      - ./nginx_data/log:/var/log/nginx
+      - ./nginx_data/html:/usr/share/nginx/html
+
+# docker run --name nginx -d -p 80:80  -v nginx_data/conf/nginx.conf:/etc/nginx/nginx.conf  -v nginx_data/log:/var/log/nginx  -v nginx_data/html:/usr/share/nginx/html nginx
