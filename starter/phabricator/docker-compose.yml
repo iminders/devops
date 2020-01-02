@@ -27,7 +27,7 @@ services:
       # - MARIADB_PORT_NUMBER=4306
     volumes:
       - './phabricator_data:/bitnami'
-      - './phab_vhost.conf:/opt/bitnami/apache/conf/vhosts/phab_vhost.conf'
+      - './phab_vhost.conf:/opt/bitnami/apache/conf/vhosts/my_vhost.conf'
     depends_on:
       - mariadb
     # restart: always
