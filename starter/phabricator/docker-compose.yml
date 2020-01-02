@@ -4,8 +4,8 @@ services:
     image: 'bitnami/mariadb:latest'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - '4306:3306'
+    # ports:
+      # - '4306:3306'
     volumes:
       - 'mariadb_data:/bitnami'
     # restart: always
@@ -24,7 +24,7 @@ services:
       # - MARIADB_USER=root
       # - MARIADB_PASSWORD=king0123
       # - MARIADB_HOST=mariadb
-      - MARIADB_PORT_NUMBER=4306
+      # - MARIADB_PORT_NUMBER=4306
     volumes:
       - './phabricator_data:/bitnami'
     depends_on:
