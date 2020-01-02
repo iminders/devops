@@ -1,7 +1,7 @@
 sudo docker run --detach \
     --hostname gitlab.godel.com \
     --publish 443:443 --publish 8080:80 --publish 10022:22 \
-    --name gitlab \
+    --name gitlab_1 \
     --restart always \
     --volume /home/ubuntu/data/gitlab/config:/etc/gitlab \
     --volume /home/ubuntu/data/gitlab/logs:/var/log/gitlab \
