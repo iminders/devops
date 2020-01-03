@@ -22,12 +22,11 @@ services:
       - PHABRICATOR_PASSWORD=${PASSWD}
       - PHABRICATOR_EMAIL=${EMAIL}
       # - MARIADB_USER=root
-      # - MARIADB_PASSWORD=king0123
+      # - MARIADB_PASSWORD=****
       # - MARIADB_HOST=mariadb
       # - MARIADB_PORT_NUMBER=4306
     volumes:
       - './phabricator_data:/bitnami'
-      - './phab_vhost.conf:/opt/bitnami/apache/conf/vhosts/my_vhost.conf'
     depends_on:
       - mariadb
     # restart: always
