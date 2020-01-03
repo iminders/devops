@@ -19,7 +19,7 @@ services:
       - fix-mariadb-volume-ownership
     # restart: always
   phabricator:
-    image: 'bitnami/phabricator:latest'
+    image: 'bitnami/phabricator:2019'
     labels:
       kompose.service.type: nodeport
     ports:
