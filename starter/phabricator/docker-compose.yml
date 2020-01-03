@@ -1,5 +1,13 @@
 version: '2'
 services:
+  fix-mariadb-volume-ownership:
+    container_name: 'phabricator-fix-mariadb'
+    hostname: 'phabricator-fix-mariadb'
+    image: 'bitnami/mariadb:10.3'
+    user: root
+    command: chown -R 1001:1001 /bitnami
+    volumes:
+      - './mariadb_data:/bitnami'
   mariadb:
     image: 'bitnami/mariadb:10.3'
     environment:
@@ -7,6 +15,8 @@ services:
       - MARIADB_EXTRA_FLAGS=--local-infile=0
     volumes:
       - './mariadb_data:/bitnami'
+    depends_on:
+      - fix-mariadb-volume-ownership
     # restart: always
   phabricator:
     image: 'bitnami/phabricator:latest'
