@@ -1,7 +1,7 @@
 version: '2'
 services:
   mariadb:
-    image: 'bitnami/mariadb:latest'
+    image: 'bitnami/mariadb:10.3'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_EXTRA_FLAGS=--local-infile=0
@@ -15,8 +15,8 @@ services:
     labels:
       kompose.service.type: nodeport
     ports:
-      - '8081:80'
-      - '9443:443'
+      - '5081:80'
+      - '5443:443'
     environment:
       - PHABRICATOR_HOST=${PHABRICATOR_HOST}
       - PHABRICATOR_USERNAME=${USER_NAME}
