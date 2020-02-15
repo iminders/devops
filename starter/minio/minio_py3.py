@@ -1,4 +1,5 @@
 # https://docs.min.io/docs/python-client-quickstart-guide
+# pip3 install minio
 import os
 
 from minio import Minio
