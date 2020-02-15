@@ -29,3 +29,4 @@
 *.egg-info/
 data/
 *_data/
+*.ropeproject/
