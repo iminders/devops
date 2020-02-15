@@ -10,7 +10,7 @@ access_key = os.getenv("MINIO_ACCESS_KEY")
 secret_key = os.getenv("MINIO_SECRET_KEY")
 
 minioClient = Minio(
-    'iminders:7000',
+    'iminders:5001',
     access_key=access_key,
     secret_key=secret_key,
     secure=False)
