@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 ENV BAZEL_VERSION 2.1.0
 ENV GOLANG_VERSION 1.13.8
-ENV PYTHON_VERSION 3.8.1
+ENV PYTHON_VERSION 3.7.6
 
 # 更换为阿里云境像
 RUN sed -i "s/archive.ubuntu.com/mirrors.aliyun.com/g" /etc/apt/sources.list
@@ -19,22 +19,13 @@ RUN (apt-get update && apt-get install -y --no-install-recommends \
         g++ unzip zip \
         openjdk-11-jre-headless)
 
-RUN (curl -L https://dl.google.com/go/go$GOLANG_VERSION.linux-amd64.tar.gz | tar zx -C /usr/lib)
-
-# RUN (wget https://github.com/bazelbuild/bazel/releases/download/2.1.0/bazel-2.1.0-installer-linux-x86_64.sh /tmp/install.sh)
-ADD bazel-2.1.0-installer-linux-x86_64.sh /tmp/install.sh
-RUN (chmod +x /tmp/install.sh && \
-     bash /tmp/install.sh --user &&\
-     echo "bash /root/.bazel/bin/bazel-complete.bash" >> /root/.bashrc)
-RUN echo "export PATH=$PATH:$HOME/bin:/usr/lib/go/bin" >> /root/.bashrc
-
-ADD Python-3.8.1.tgz /tmp/
+ADD Python-3.7.6.tgz /tmp/
 WORKDIR /tmp/
-# RUN wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz
-# RUN tar -zxvf Python-3.8.1.tgz
-WORKDIR /tmp/Python-3.8.1
+# RUN wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tgz
+# RUN tar -zxvf Python-3.7.6.tgz
+WORKDIR /tmp/Python-3.7.6
 RUN echo `ls`
-WORKDIR /tmp/Python-3.8.1
+WORKDIR /tmp/Python-3.7.6
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get dist-upgrade -y
@@ -56,11 +47,21 @@ RUN pip install --upgrade pip
 RUN (pip install -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com grpcio numpy && \
      touch /root/WORKSPACE)
 
+RUN (curl -L https://dl.google.com/go/go$GOLANG_VERSION.linux-amd64.tar.gz | tar zx -C /usr/lib)
+
+# RUN (wget https://github.com/bazelbuild/bazel/releases/download/2.1.0/bazel-2.1.0-installer-linux-x86_64.sh /tmp/install.sh)
+ADD bazel-2.1.0-installer-linux-x86_64.sh /tmp/install.sh
+RUN (chmod +x /tmp/install.sh && \
+    bash /tmp/install.sh)
+# RUN echo "bash /root/.bazel/bin/bazel-complete.bash" >> /root/.bashrc
+RUN echo "export PATH=$PATH:/usr/lib/go/bin" >> /root/.bashrc
+
 # clean
-RUN rm -rf /tmp/install.sh && rm -rf /tmp/Python-3.8.1*
+RUN rm -rf /tmp/install.sh && rm -rf /tmp/Python-3.7.6*
 RUN  rm -rf /var/lib/apt/lists/*
 RUN rm -rf /root/.cache/pip
 
 WORKDIR /root
 
+CMD ["source ~/.bashrc"]
 CMD ["bin/bash"]
