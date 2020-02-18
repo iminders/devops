@@ -1,11 +1,11 @@
 ### build image
 ```
 cd dockerfiles/aiminders/bazel/
-docker build -f 0.9.0.Dockerfile -t aiminders/libary:bazel.0.9.0 .
+docker build -f latest.Dockerfile -t aiminders/library:bazel.latest .
 ```
 
 ### push to docker hub
 
 ```
-docker push aiminders/libary:bazel.0.9.0
+docker push aiminders/library:bazel.latest
 ```
