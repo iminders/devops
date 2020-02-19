@@ -63,5 +63,10 @@ RUN rm -rf /root/.cache/pip
 
 WORKDIR /root
 
+RUN mkdir /root/.pip
+RUN echo "[global]" >> /root/.pip/pip.conf
+RUN echo "index-url=http://mirrors.aliyun.com/pypi/simple/" >> /root/.pip/pip.conf
+RUN echo "trusted-host=mirrors.aliyun.com" >> /root/.pip/pip.conf
+
 CMD ["source ~/.bashrc"]
 CMD ["bin/bash"]

@@ -30,3 +30,5 @@
 data/
 *_data/
 *.ropeproject/
+bazel-2.1.0-installer-linux-x86_64.sh
+Python-3.7.6.tgz
