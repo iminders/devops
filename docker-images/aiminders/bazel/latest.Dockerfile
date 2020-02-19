@@ -68,5 +68,10 @@ RUN echo "[global]" >> /root/.pip/pip.conf
 RUN echo "index-url=http://mirrors.aliyun.com/pypi/simple/" >> /root/.pip/pip.conf
 RUN echo "trusted-host=mirrors.aliyun.com" >> /root/.pip/pip.conf
 
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/local/python3/bin/python3 1
+RUN update-alternatives --install /usr/bin/pip3 pip3 /usr/local/python3/bin/pip3 1
+RUN update-alternatives --config python3
+RUN update-alternatives --config pip3
+
 CMD ["source ~/.bashrc"]
 CMD ["bin/bash"]
