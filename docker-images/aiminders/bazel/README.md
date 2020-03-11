@@ -1,7 +1,13 @@
 ### build image
 ```
 cd dockerfiles/aiminders/bazel/
-docker build -f latest.Dockerfile -t aiminders/library:bazel.latest .
+make build
+```
+
+### build gpu image
+```
+cd dockerfiles/aiminders/bazel/
+make build-gpu
 ```
 
 ### push to docker hub
