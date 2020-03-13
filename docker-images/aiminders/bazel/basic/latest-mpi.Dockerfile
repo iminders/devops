@@ -24,5 +24,9 @@ RUN mv /usr/local/bin/mpirun /usr/local/bin/mpirun.real && \
 # Configure OpenMPI to run good defaults:
 RUN echo "btl_tcp_if_exclude = lo,docker0" >> /usr/local/etc/openmpi-mca-params.conf
 
+RUN pip install torch==1.4
+RUN pip install tensorflow==1.13.1
+RUN pip install tensorboard==1.13.1
+
 CMD ["source ~/.bashrc"]
 CMD ["bin/bash"]
