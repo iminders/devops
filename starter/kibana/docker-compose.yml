@@ -1,3 +1,5 @@
+
+# https://hub.docker.com/r/bitnami/kibana/tags
 version: '2'
 services:
   elasticsearch:
