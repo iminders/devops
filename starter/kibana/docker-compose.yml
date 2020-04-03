@@ -52,12 +52,7 @@ services:
     volumes:
       - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/tmp/filebeat/logs/:/usr/share/filebeat/logs/"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-    networks:
-      - elk
-    links:
-       - elasticsearch
-       - kibana
+      - "/var/lib/docker/containers:/var/log/docker:ro"
 
 networks:
   elk:
