@@ -54,7 +54,7 @@ services:
     volumes:
       - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "/var/lib/docker/containers:/var/log/docker:ro"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/tmp/filebeat/registry/:/usr/share/filebeat/data/registry/"
 
 networks:
   elk:

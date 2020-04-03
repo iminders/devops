@@ -1,12 +1,14 @@
-filebeat.config:
-  modules:
-    path: ${path.config}/modules.d/*.yml
-    reload.enabled: false
+filebeat.inputs:
+    - type: log
+      enabled: true
+      paths:
+          - /var/log/docker/*/*.log
 
-filebeat.autodiscover:
-  providers:
-    - type: docker
-      hints.enabled: true
+json.keys_under_root: true
+
+json.add_error_key: true
+
+json.overwrite_keys: true
 
 setup.kibana:
   host: http://192.168.1.107:5601
@@ -17,3 +19,7 @@ output.elasticsearch:
   hosts: ["http://192.168.1.107:9200"]
   username: elastic
   password: changeme
+
+setup.template.name: "filebeattest"
+
+setup.template.pattern: "filebeattest-*"
