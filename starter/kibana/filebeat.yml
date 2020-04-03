@@ -15,10 +15,8 @@ setup.kibana:
   username: elastic
   password: changeme
 
-output.elasticsearch:
-  hosts: ["http://192.168.1.107:9200"]
-  username: elastic
-  password: changeme
+output.logstash:
+  hosts: ["http://192.168.1.107:5000"]
 
 setup.template.name: "filebeattest"
 
