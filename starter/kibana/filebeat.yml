@@ -20,7 +20,3 @@ output.elasticsearch:
   hosts: ["http://192.168.1.107:9200"]
   username: elastic
   password: changeme
-
-# setup.template.name: "filebeattest"
-#
-# setup.template.pattern: "filebeattest-*"

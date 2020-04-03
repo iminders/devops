@@ -48,6 +48,7 @@ services:
 
   filebeat:
     image: registry.cn-hangzhou.aliyuncs.com/tradingai/elk:filebeat.latest
+    user: root
     command: filebeat -e -strict.perms=false
     volumes:
       - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
