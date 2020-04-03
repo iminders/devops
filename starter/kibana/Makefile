@@ -1,16 +1,23 @@
 .PHONY: init clean run
 
 init:
-	mkdir -p /home/ubuntu/data/kibana
-	mkdir -p /home/ubuntu/data/elasticsearch
+	mkdir -p /tmp/data/kibana
+	mkdir -p /tmp/data/elasticsearch
+	mkdir -p /tmp/filebeat/logs
 
 clean:
-	rm -rf /home/ubuntu/data/kibana
-	rm -rf /home/ubuntu/data/elasticsearch
+	rm -rf /tmp/data/kibana
+	rm -rf /tmp/data/elasticsearch
+	rm -rf /tmp/filebeat/logs
 
 run:
 	# sudo sysctl -w vm.max_map_count=262144
 	docker-compose up -d
 
-stop:
+pull:
+	docker pull registry.cn-hangzhou.aliyuncs.com/tradingai/elk:elasticsearch.latest
+	docker pull registry.cn-hangzhou.aliyuncs.com/tradingai/elk:logstash.latest
+	docker pull registry.cn-hangzhou.aliyuncs.com/tradingai/elk:kibana.latest
+
+down:
 	docker-compose down
