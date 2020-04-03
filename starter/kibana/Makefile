@@ -12,7 +12,7 @@ clean:
 
 run:
 	# sudo sysctl -w vm.max_map_count=262144
-	docker-compose up -d
+	docker-compose up -d elasticsearch logstash kibana
 
 pull:
 	docker pull registry.cn-hangzhou.aliyuncs.com/tradingai/elk:elasticsearch.latest
