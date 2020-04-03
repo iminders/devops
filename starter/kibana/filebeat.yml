@@ -20,7 +20,6 @@ output.elasticsearch:
   hosts: ["http://192.168.1.107:9200"]
   username: elastic
   password: changeme
-  index: "filebeat-%{[beat.version]}-%{+yyyy.MM.dd}"
 
 # setup.template.name: "filebeattest"
 #
