@@ -49,7 +49,7 @@ services:
   filebeat:
     image: registry.cn-hangzhou.aliyuncs.com/tradingai/elk:filebeat.latest
     user: root
-    name: filebeat
+    container_name: filebeat
     command: filebeat -e -strict.perms=false
     volumes:
       - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
