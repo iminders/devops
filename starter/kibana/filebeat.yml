@@ -16,7 +16,7 @@ setup.kibana:
   password: changeme
 
 output.logstash:
-  hosts: ["http://192.168.1.107:5044"]
+  hosts: ["192.168.1.107:5044"]
 
 setup.template.name: "filebeattest"
 
