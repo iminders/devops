@@ -3,6 +3,12 @@ filebeat.inputs:
   paths:
     - /var/log/docker/*/*.log
 
+json.keys_under_root: true
+
+json.add_error_key: true
+
+json.overwrite_keys: true
+
 setup.kibana:
   host: http://192.168.1.107:5601
   username: elastic
@@ -13,3 +19,7 @@ output.elasticsearch:
   username: elastic
   password: changeme
   index: "filebeat-%{[beat.version]}-%{+yyyy.MM.dd}"
+
+setup.template.name: "filebeattest"
+
+setup.template.pattern: "filebeattest-*"
