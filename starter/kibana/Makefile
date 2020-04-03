@@ -10,7 +10,7 @@ clean:
 	rm -rf /tmp/data/elasticsearch
 	rm -rf /tmp/filebeat/logs
 
-run:
+up:
 	# sudo sysctl -w vm.max_map_count=262144
 	docker-compose up -d elasticsearch logstash kibana
 
