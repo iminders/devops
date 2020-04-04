@@ -1,10 +1,5 @@
 .PHONY: init clean run
 
-init:
-	mkdir -p /tmp/data/kibana
-	mkdir -p /tmp/data/elasticsearch
-	mkdir -p /tmp/filebeat/logs
-
 clean:
 	rm -rf /tmp/data/kibana
 	rm -rf /tmp/data/elasticsearch

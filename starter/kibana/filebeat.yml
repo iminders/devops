@@ -17,3 +17,15 @@ setup.kibana:
 
 output.logstash:
   hosts: ["192.168.1.107:5044"]
+
+#==================== Elasticsearch template setting ==========================
+
+setup.template.name: "filebeat.template.json"
+setup.template.fields: "filebeat.template.json"
+setup.template.overwrite: true
+setup.template.enabled: false
+
+# 过滤掉一些不必要字段#
+processors:
+- drop_fields:
+    fields: ["input_type", "offset", "stream", "beat"]
