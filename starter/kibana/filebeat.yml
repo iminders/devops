@@ -4,11 +4,10 @@ filebeat.inputs:
       paths:
           - /var/log/docker/*/*.log
 
-json.keys_under_root: true
-
-json.add_error_key: true
-
-json.overwrite_keys: true
+json.keys_under_root: true # 因为docker使用的log driver是json-file，因此采集到的日志格式是json格式，设置为true之后，filebeat会将日志进行json_decode处理
+json.add_error_key: true #如果启用此设置，则在出现JSON解组错误或配置中定义了message_key但无法使用的情况下，Filebeat将添加“error.message”和“error.type：json”键。
+json.message_key: log #一个可选的配置设置，用于指定应用行筛选和多行设置的JSON密钥。 如果指定，键必须位于JSON对象的顶层，且与键关联的值必须是字符串，否则不会发生过滤或多行聚合。
+tail_files: true
 
 setup.kibana:
   host: http://192.168.1.107:5601
@@ -18,14 +17,13 @@ setup.kibana:
 output.logstash:
   hosts: ["192.168.1.107:5044"]
 
-#==================== Elasticsearch template setting ==========================
-
-setup.template.name: "filebeat.template.json"
-setup.template.fields: "filebeat.template.json"
-setup.template.overwrite: true
-setup.template.enabled: false
-
 # 过滤掉一些不必要字段#
 processors:
+- rename:
+    fields:
+     - from: "json.log"
+       to: "message"
+     - from: "docker.container.name"
+       to: "containername"
 - drop_fields:
-    fields: ["input_type", "offset", "stream", "beat"]
+    fields: ["docker","metadata","beat","input","prospector","host","source", "offset", "beat", "log.file.path"]
