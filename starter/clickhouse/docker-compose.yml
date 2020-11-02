@@ -6,8 +6,12 @@ services:
     container_name: clickhouse
     user: root
     restart: always
+    expose:
+        - 8123
+        - 9000
     ports:
-      - "8123:9000"
+      - "9000:9000"
+      - "8123:8123"
     volumes:
       - ./etc:/etc/clickhouse-server
       - ${DATA_HOME}/clickhouse:/var/lib/clickhouse
