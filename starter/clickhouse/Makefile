@@ -1,3 +1,5 @@
+export DATA_HOME=/home/ubuntu/data
+
 up:
 	docker-compose up
 
