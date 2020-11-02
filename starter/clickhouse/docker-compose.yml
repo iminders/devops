@@ -9,7 +9,7 @@ services:
       - "7899:9000"
     volumes:
       - ./etc:/etc/clickhouse-server
-      - ${DATA_HOME}/clickhouse:/var/lib/clickhouse
+      - $DATA_HOME/clickhouse:/var/lib/clickhouse
     ulimits:
       nofile:
         soft: 262144
