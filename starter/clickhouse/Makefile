@@ -8,7 +8,7 @@ stop:
 	docker stop clickhouse
 
 down:
-	docker-compse down
+	docker-compose down
 
 client:
 	docker run -it --rm  yandex/clickhouse-client --host $(click_host) --port $(click_port)
