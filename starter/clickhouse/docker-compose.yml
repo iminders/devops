@@ -3,6 +3,7 @@ version: '3'
 services:
   clickhouse:
     image: yandex/clickhouse-server:20.8
+    container_name: clickhouse
     user: root
     restart: always
     ports:
