@@ -8,6 +8,7 @@ services:
     restart: always
     ports:
       - "7899:9000"
+      - "8123:8123"
     volumes:
       - ./etc:/etc/clickhouse-server
       - ${DATA_HOME}/clickhouse:/var/lib/clickhouse
