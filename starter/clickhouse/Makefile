@@ -14,4 +14,4 @@ client:
 	docker run -it --rm  yandex/clickhouse-client --host $(click_host) --port $(click_port)
 
 tabix:
-	docker run -d -p 7900:80 tabix
+	docker run -d -p 7900:80 spoonest/clickhouse-tabix-web-client
