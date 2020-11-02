@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  clickhouse:
+    image: yandex/clickhouse-server:20.8
+    user: root
+    restart: always
+    ports:
+      - "7899:9000"
+    volumes:
+      - ./etc:/etc/clickhouse-server
+      - ${DATA_HOME}/clickhouse:/var/lib/clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    privileged: true
