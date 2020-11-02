@@ -1,3 +1,6 @@
+click_host?=iminders
+click_port?=7899
+
 up:
 	docker-compose up -d
 
@@ -6,3 +9,6 @@ stop:
 
 down:
 	docker-compse down
+
+client:
+	docker run -it --rm  yandex/clickhouse-client --host $(click_host) --port $(click_port)
