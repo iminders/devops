@@ -30,7 +30,7 @@
     <!-- Users and ACL. -->
     <users>
         <!-- If user name was not specified, 'default' user is used. -->
-        <default>
+        <devops>
             <!-- Password could be specified in plaintext or in SHA256 (in hex format).
 
                  If you want to specify password in plaintext (not recommended), place it in 'password' element.
@@ -55,7 +55,7 @@
                  Execute: PASSWORD=$(base64 < /dev/urandom | head -c8); echo "$PASSWORD"; echo -n "$PASSWORD" | sha1sum | tr -d '-' | xxd -r -p | sha1sum | tr -d '-'
                  In first line will be password and in second - corresponding double SHA1.
             -->
-            <password></password>
+            <password_double_sha1_hex>b544e9e7cfbdf0ece6fe8fb12b5e53341adb89cb</password_double_sha1_hex>
 
             <!-- List of networks with open access.
 
