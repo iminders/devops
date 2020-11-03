@@ -15,7 +15,8 @@ config:
 	docker exec -it superset superset init
 
 down:
-	docker down superset
+	docker stop superset
+	docker rm superset
 
 
 stop:
