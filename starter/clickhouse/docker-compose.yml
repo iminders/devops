@@ -6,6 +6,8 @@ services:
     container_name: clickhouse
     user: root
     restart: always
+    environment:
+        - TZ=Asia/Shanghai
     expose:
         - 8123
         - 9000
