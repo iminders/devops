@@ -1,4 +1,6 @@
 # https://hub.docker.com/r/preset/superset/
+SUPERSET_PASSWD?=test2020
+
 up:
 	docker run -d -p 8080:8080 --name superset preset/superset
 
