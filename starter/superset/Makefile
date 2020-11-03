@@ -2,7 +2,7 @@
 SUPERSET_PASSWD?=test2020
 
 up:
-	docker run -d -p 8080:8080 --name superset preset/superset
+	docker run -d -p 8080:8080 --name superset preset/superset:0.37
 
 config:
 	docker exec -it superset superset fab create-admin \
@@ -12,7 +12,6 @@ config:
                --email liuwen.w@qq.com \
                --password $(SUPERSET_PASSWD)
 	docker exec -it superset superset db upgrade
-	docker exec -it superset superset load_examples
 	docker exec -it superset superset init
 
 down:
