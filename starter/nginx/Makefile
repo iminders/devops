@@ -1,5 +1,5 @@
 install:
-	bash init
+	bash init.sh
 
 up:
 	docker-compose up -d
