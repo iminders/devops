@@ -1,9 +1,11 @@
-version: '2.0'
+version: "3.0"
 
 services:
   redis:
-    image: redis:4.0-alpine
-    expose:
-      - '6379'
+    image: redis:6.0-alpine
+    restart: always
+    command: redis-server --requirepass ${REDIS_PASSWD}
     ports:
-      - '6379:6379'
+      - 6379:6379
+    volumes:
+      - ${DATA_HOME}/redis:/data
