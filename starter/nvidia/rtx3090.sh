@@ -7,6 +7,8 @@ cd /home/root/installs/nvidia
 # 2. cuda_11.2.0_460.27.04_linux.run
 # 3. cudnn-11.2-linux-x64-v8.1.1.33.tgz
 # 4. Miniconda3-latest-Linux-x86_64.sh
+# 5. rtx3090.sh
+# 6. hello_tf.py
 
 # step 1. driver 460.27.04 安装
 sudo chmod +x NVIDIA-Linux-x86_64-460.67.run
@@ -41,45 +43,6 @@ conda activate tf
 # https://tensorflow.google.cn/install/source#linux
 pip install tensorflow-gpu==2.4.0 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 
-echo 'run ello_tf.py'
-cat>hello_tf.py<<EOF
-import timeit
-
-import tensorflow as tf
-
-with tf.device('/gpu:0'):
-    a0 = tf.random.normal([10000, 1000])
-    b0 = tf.random.normal([1000, 2000])
-    print(a0.device, b0.device)
-
-with tf.device('/gpu:1'):
-    a1 = tf.random.normal([10000, 1000])
-    b1 = tf.random.normal([1000, 2000])
-    print(a1.device, b1.device)
-
-
-def run0():
-    with tf.device('/gpu:0'):
-        c = tf.matmul(a0, b0)
-    return c
-
-
-def run1():
-    with tf.device('/gpu:1'):
-        c = tf.matmul(a1, b1)
-    return c
-
-
-for i in range(10):
-    cpu_time = timeit.timeit(run0, number=10)
-    gpu_time = timeit.timeit(run1, number=10)
-    print('warmup:', cpu_time, gpu_time)
-
-    cpu_time = timeit.timeit(run0, number=10)
-    gpu_time = timeit.timeit(run1, number=10)
-    print('run time:', cpu_time, gpu_time)
-    print(f'Count {i}/10000')
-EOF
 
 python hello_tf.py
 
