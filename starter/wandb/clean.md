@@ -3,6 +3,8 @@ docker exec -it <container id> bash
 
 mysql -u root -p
 
+use wandb_local;
+
 describe hs_events;
 
 SELECT table_name AS "Table",
